@@ -27,10 +27,7 @@
     "autoload": {
         "psr-4": {
             "Mellanyx\\StandaloneContainerRouter\\": "src/"
-        },
-        "files": [
-            "configs/constants.php"
-        ]
+        }
     },
     "scripts": {
         "check": [
@@ -39,12 +36,9 @@
         "cs-check": "phpcs",
         "cs-fix": "phpcbf",
         "post-autoload-dump": [
-            "php -r \"file_exists('.editorconfig') ? \"\" : copy('configs/.editorconfig', '.editorconfig');\"",
-            "php -r \"file_exists('phpcs.xml.dist') ? \"\" : copy('configs/phpcs.xml.dist', 'phpcs.xml.dist');\"",
-            "php -r \"file_exists('configs') ? \"\" : mkdir('configs/', 0755, true); \"",
-            "php -r \"file_exists('configs/constants.php') ? \"\" : copy('configs/constants.php', 'configs/constants.php');\"",
-            "php -r \"file_exists('configs/container.php') ? \"\" : copy('configs/container.php', 'configs/container.php');\"",
-            "php -r \"file_exists('configs/routes.php') ? \"\" : copy('configs/routes.php', 'configs/routes.php');\""
+            "Mellanyx\\StandaloneContainerRouter\\Vendor\\FileManager::createConstants",
+            "Mellanyx\\StandaloneContainerRouter\\Vendor\\FileManager::createContainer",
+            "Mellanyx\\StandaloneContainerRouter\\Vendor\\FileManager::createRoutes"
         ]
     },
     "config": {
